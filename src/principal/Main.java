@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,7 +35,7 @@ public class Main {
 	}
 	public static boolean login(File fichP, boolean loginCorrecto) {
 		String usuario,contra;
-		boolean finArchivo=false,valido=false;
+		boolean finArchivo=false;
 		ObjectInputStream ois=null;	
 
 		System.out.println("Introduce tu usuario:");
@@ -79,7 +80,7 @@ public class Main {
 			}else {
 				System.out.println("Usuario o la contraseña son incorrectos");
 			}
-		}while(!loginCorrecto);
+		}while(!loginCorrecto); //bucle hasta que exista 
 
 		do{
 			opcion = menu();
@@ -203,12 +204,11 @@ public class Main {
 		}
 	}
 	public static Personaje introducirinfo(String user ,String contra) {
-		String nombre,carg;
 		LocalDate fechaCreacion;
 		int oro;
 
 		System.out.println("Fecha de creacion:");
-		fechaCreacion=Utilidades.leerFechaAMD();
+		fechaCreacion=Utilidades.leerFechaDMA();
 
 		System.out.println("Oro:");
 		oro=Utilidades.leerInt();
@@ -218,7 +218,8 @@ public class Main {
 		
 		//contrustor de la clase 
 		//arraylist de mochila vacia
-		Personaje personaje=new Trabajador(dni,nombre,user,contra,cargo);
+		ArrayList<Objeto>mochila= new ArrayList<>();
+		Personaje personaje=new Personaje(user,contra,fechaCreacion,oro,mochila);
 		return personaje;
 	}
 }

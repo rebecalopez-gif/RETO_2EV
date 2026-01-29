@@ -2,6 +2,8 @@ package clases;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import utilidades.Utilidades;
 public class Personaje implements Serializable , Comparable<Personaje>{
 	/**
 	 *
@@ -13,6 +15,20 @@ public class Personaje implements Serializable , Comparable<Personaje>{
 	private int codMochila;
 	private int oro;
 	private ArrayList<Objeto>mochila;
+	
+	
+	public Personaje(String user, String contrasena, LocalDate fechaCreacion,  int oro,
+			ArrayList<Objeto> mochila) {
+		this.user = user;
+		this.contrasena = contrasena;
+		this.fechaCreacion = fechaCreacion;
+		this.codMochila = codMochila;
+		//user.substring(0,3).toUpperCase()+"-"+Utilidades.fechaToString(fechaCreacion).substring(8,10)
+		//las 3 primeras letras del user y los dos ultimos nuemros del año ya que es DD-MM-AAAA 
+		this.oro = oro;
+		this.mochila = mochila;
+	}
+	
 	
 	public String getUser() {
 		return user;

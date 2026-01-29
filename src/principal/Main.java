@@ -219,7 +219,7 @@ public class Main {
 		//contrustor de la clase 
 		//arraylist de mochila vacia
 		ArrayList<Objeto>mochila= new ArrayList<>();
-		Personaje personaje=new Personaje(user,contra,fechaCreacion,oro,mochila);
+		Personaje personaje=new Personaje(user,contra,fechaCreacion,oro);
 		return personaje;
 	}
 }

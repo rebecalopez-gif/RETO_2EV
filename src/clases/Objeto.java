@@ -1,6 +1,7 @@
 package clases;
+import java.io.Serializable;
 
-public abstract class Objeto {
+public abstract class Objeto implements Serializable{
 	
 	protected String nombre;
 	protected String desc;
